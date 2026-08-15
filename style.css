@@ -1,0 +1,221 @@
+/* ==========================================================
+   Panduan PSAS Matematika 2026 — shared styles
+   Palette:
+     navy      #17233D  (header / footer / dark surfaces)
+     paper     #FAFAF8  (page background)
+     ink       #1E2430  (body text)
+     slate     #5B6478  (secondary text)
+     gold      #B4863A  (SMA accent + primary actions)
+     teal      #2E6459  (SMP accent)
+     hairline  #E4E1D8  (borders)
+   ========================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Source+Sans+3:wght@400;500;600&display=swap');
+
+:root {
+  --navy: #17233D;
+  --paper: #FAFAF8;
+  --ink: #1E2430;
+  --slate: #5B6478;
+  --gold: #B4863A;
+  --teal: #2E6459;
+  --hairline: #E4E1D8;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 24px 80px;
+}
+
+/* ---- top ledger bar (breadcrumb as an index tab) ---- */
+.ledger {
+  background: var(--navy);
+  color: #C9CEDA;
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  padding: 14px 24px;
+}
+.ledger .ledger-inner {
+  max-width: 760px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.ledger a { color: #C9CEDA; text-decoration: none; border-bottom: 1px solid rgba(201,206,218,0.35); }
+.ledger a:hover { color: #fff; border-color: #fff; }
+.ledger .sep { opacity: 0.5; }
+.ledger .current { color: #fff; font-weight: 600; }
+
+/* ---- hero / title block ---- */
+.eyebrow {
+  margin-top: 56px;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--slate);
+  font-weight: 600;
+}
+h1 {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 1.15;
+  margin: 10px 0 12px;
+  color: var(--navy);
+}
+.subtitle {
+  font-size: 16px;
+  color: var(--slate);
+  line-height: 1.6;
+  max-width: 56ch;
+  margin-bottom: 44px;
+}
+
+/* ---- binder tabs (home page: pilih jenjang) ---- */
+.tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+@media (max-width: 560px) {
+  .tabs { grid-template-columns: 1fr; }
+}
+.tab {
+  position: relative;
+  display: block;
+  text-decoration: none;
+  background: #fff;
+  border: 1px solid var(--hairline);
+  border-top: 4px solid var(--tab-accent, var(--teal));
+  border-radius: 3px;
+  padding: 28px 22px 24px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.tab:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(23,35,61,0.10);
+}
+.tab .tab-label {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--tab-accent, var(--teal));
+  margin-bottom: 10px;
+}
+.tab .tab-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 22px;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.tab .tab-desc {
+  font-size: 13.5px;
+  color: var(--slate);
+}
+.tab .tab-arrow {
+  position: absolute;
+  right: 22px;
+  bottom: 22px;
+  font-size: 18px;
+  color: var(--tab-accent, var(--teal));
+}
+
+/* ---- resource index cards (sub pages) ---- */
+.index-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.index-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  text-decoration: none;
+  background: #fff;
+  border: 1px solid var(--hairline);
+  border-left: 4px solid var(--accent, var(--teal));
+  border-radius: 3px;
+  padding: 18px 20px;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+.index-card:hover {
+  background: #F5F3EC;
+  transform: translateX(2px);
+}
+.index-card .num {
+  font-family: 'Source Sans 3', monospace;
+  font-size: 12px;
+  color: var(--slate);
+  min-width: 22px;
+}
+.index-card .body { flex: 1; }
+.index-card .title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 3px;
+}
+.index-card .desc {
+  font-size: 13px;
+  color: var(--slate);
+}
+.index-card .go {
+  color: var(--accent, var(--teal));
+  font-size: 18px;
+}
+
+/* ---- footer nav ---- */
+.footer-nav {
+  margin-top: 56px;
+  padding-top: 24px;
+  border-top: 1px solid var(--hairline);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  font-size: 13.5px;
+  font-weight: 600;
+  padding: 10px 16px;
+  border-radius: 3px;
+  border: 1px solid var(--hairline);
+  color: var(--ink);
+  background: #fff;
+}
+.nav-btn:hover { background: #F5F3EC; }
+.nav-btn.primary {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: #fff;
+}
+.nav-btn.primary:hover { background: #223056; }
+.nav-group { display: flex; gap: 10px; flex-wrap: wrap; }
+
+/* focus visibility */
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
