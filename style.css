@@ -8,9 +8,12 @@
      gold      #B4863A  (SMA accent + primary actions)
      teal      #2E6459  (SMP accent)
      hairline  #E4E1D8  (borders)
+   Type:
+     display   Newsreader        (judul — serif kontras lembut)
+     body      Plus Jakarta Sans (teks & antarmuka)
    ========================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Source+Sans+3:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
 
 :root {
   --navy: #17233D;
@@ -20,6 +23,9 @@
   --gold: #B4863A;
   --teal: #2E6459;
   --hairline: #E4E1D8;
+
+  --display: 'Newsreader', Georgia, 'Times New Roman', serif;
+  --body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 * { box-sizing: border-box; }
@@ -29,8 +35,11 @@ html, body {
   padding: 0;
   background: var(--paper);
   color: var(--ink);
-  font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: var(--body);
+  font-size: 16px;
+  line-height: 1.65;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .wrap {
@@ -43,9 +52,8 @@ html, body {
 .ledger {
   background: var(--navy);
   color: #C9CEDA;
-  font-family: 'Source Sans 3', sans-serif;
   font-size: 13px;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.02em;
   padding: 14px 24px;
 }
 .ledger .ledger-inner {
@@ -64,24 +72,26 @@ html, body {
 .eyebrow {
   margin-top: 56px;
   font-size: 12px;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--slate);
   font-weight: 600;
 }
 h1 {
-  font-family: 'Fraunces', serif;
-  font-weight: 600;
-  font-size: 40px;
-  line-height: 1.15;
-  margin: 10px 0 12px;
+  font-family: var(--display);
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-size: 43px;
+  line-height: 1.14;
+  letter-spacing: -0.015em;
+  margin: 12px 0 14px;
   color: var(--navy);
 }
 .subtitle {
-  font-size: 16px;
+  font-size: 16.5px;
   color: var(--slate);
-  line-height: 1.6;
-  max-width: 56ch;
+  line-height: 1.7;
+  max-width: 54ch;
   margin-bottom: 44px;
 }
 
@@ -93,6 +103,7 @@ h1 {
 }
 @media (max-width: 560px) {
   .tabs { grid-template-columns: 1fr; }
+  h1 { font-size: 34px; }
 }
 .tab {
   position: relative;
@@ -111,21 +122,25 @@ h1 {
 }
 .tab .tab-label {
   font-size: 11px;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.09em;
   text-transform: uppercase;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--tab-accent, var(--teal));
   margin-bottom: 10px;
 }
 .tab .tab-title {
-  font-family: 'Fraunces', serif;
-  font-weight: 600;
-  font-size: 22px;
+  font-family: var(--display);
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
   color: var(--ink);
   margin-bottom: 6px;
 }
 .tab .tab-desc {
-  font-size: 13.5px;
+  font-size: 14px;
+  line-height: 1.55;
   color: var(--slate);
 }
 .tab .tab-arrow {
@@ -160,8 +175,10 @@ h1 {
   transform: translateX(2px);
 }
 .index-card .num {
-  font-family: 'Source Sans 3', monospace;
   font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  font-variant-numeric: tabular-nums;
   color: var(--slate);
   min-width: 22px;
 }
@@ -169,11 +186,13 @@ h1 {
 .index-card .title {
   font-size: 16px;
   font-weight: 600;
+  letter-spacing: -0.005em;
   color: var(--ink);
   margin-bottom: 3px;
 }
 .index-card .desc {
-  font-size: 13px;
+  font-size: 13.5px;
+  line-height: 1.5;
   color: var(--slate);
 }
 .index-card .go {
@@ -197,8 +216,10 @@ h1 {
   align-items: center;
   gap: 6px;
   text-decoration: none;
-  font-size: 13.5px;
+  font-family: var(--body);
+  font-size: 14px;
   font-weight: 600;
+  letter-spacing: -0.005em;
   padding: 10px 16px;
   border-radius: 3px;
   border: 1px solid var(--hairline);
